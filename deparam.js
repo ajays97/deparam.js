@@ -4,18 +4,18 @@
  * Regex Credits: Steven Benner
 */
 (function($){
-  $.deparam = $.deparam || function(uri){
-    if(uri === undefined){
-      uri = window.location.search;
+  $.deparam = $.deparam || function(pString){
+    if(pString === undefined){
+      pString = window.location.search;
     }
-    var queryString = {};
-    uri.replace(
+    var dString = {};
+    pString.replace(
       new RegExp(
         "([^?=&]+)(=([^&#]*))?", "g"),
         function($0, $1, $2, $3) {
-        	queryString[$1] = decodeURIComponent($3.replace(/\+/g, '%20'));
+        	dString[$1] = decodeURIComponent($3.replace(/\+/g, '%20'));
         }
       );
-      return queryString;
+      return dString;
     };
 })(jQuery);
